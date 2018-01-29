@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <!-- Left FOrm -->
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Panel Primary
+        <div class="panel-body">
+          <h1>Left Form</h1>
+          <%= simple_form_for @product do |f| %>
+            <%= f.input :name, required: true, placeholder: "Write your name" %>
+            <%= f.input :description, hint: "Be short" %>
+            <%= f.input :price %>
+            <%= f.input :color, collection: ["red", "green", "blue"]%>
+            <%= f.input :quantity %>
+            <%= f.button :submit %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Right Form -->
+  <div class="col-md-6">
+    <div class="panel panel-success">
+      <div class="panel-heading"> Panel success
+        <div class="panel-body">
+          <h1>Right Form</h1>
+          <%= simple_form_for @product do |f| %>
+            <%= f.input :name, label:false, required: true, placeholder: "Write your name" %>
+            <div class="input-group">
+              <div class="input-group-addon">$</div>
+              <%= f.input :price, input_html: { value: '10' } %>
+            </div>
+            <%= f.button :submit %>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+
+
+<h1>Products</h1>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>
